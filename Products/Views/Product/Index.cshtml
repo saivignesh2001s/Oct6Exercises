@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Products.Models.Product>
+<h1>
+    Products
+</h1>
+<p>
+    @Html.ActionLink("Create New", "AddProduct")
+</p>
+<p>
+
+    <h2>AddNos</h2>
+    @using (Html.BeginForm())
+    {
+        <label>Enter first name to search: </label>
+        <input type="text" name="i" value="" />
+        <br />
+        <input type="submit" name="SearchProduct" value="search" />
+    }
+</p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.prodId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mfgdate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.prodId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mfgdate)
+                </td>
+                <td>
+                    @Html.ActionLink("Editcustomer", "Addfordetails", new { id = item.prodId }) |
+                    @Html.ActionLink("Details", "Showdetails", new { id = item.prodId }) |
+                    @Html.ActionLink("Delete", "Deletedetails", new { id = item.prodId })
+                </td>
+            </tr>
+        }
+        
+    </table>

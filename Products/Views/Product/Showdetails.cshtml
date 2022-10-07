@@ -1,0 +1,45 @@
+﻿@model Products.Models.Product
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.prodId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.prodId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.productname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.productname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Mfgdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mfgdate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editcustomer", "EditDetails", new { id = Model.prodId }) |
+    @Html.ActionLink("Delete", "Deletedetails", new { id = Model.prodId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
